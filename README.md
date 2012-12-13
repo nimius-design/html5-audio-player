@@ -13,6 +13,10 @@ You can embed audio using the following code.
 
 Don't forget the .ogg file, it`s needed for Firefox 3.6+ and Opera 10.5+
 
+Screen
+------
+<img src="https://github.com/nimius-design/html5-audio-player/img/screen.png" alt="nimius">
+
 Contact
 -------
 - Max Patzner: https://twitter.com/nockedout
