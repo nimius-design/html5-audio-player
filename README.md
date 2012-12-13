@@ -15,7 +15,7 @@ Don't forget the .ogg file, it`s needed for Firefox 3.6+ and Opera 10.5+
 
 Screen
 ------
-<img src="https://github.com/nimius-design/html5-audio-player/blob/master/img/screen.png" alt="nimius">
+https://github.com/nimius-design/html5-audio-player/blob/master/img/screen.png
 
 Resources
 ---------
