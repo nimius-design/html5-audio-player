@@ -20,6 +20,11 @@ Screenshot
 Resources
 ---------
 knob effect: http://tutorialzine.com/2011/11/pretty-switches-css3-jquery/
+The songs in the demo are by the highly talented Blue Ducks and Blank & Kytt:
+Six (Blue Ducks) / CC BY-NC-SA 3.0
+Heavy, Crazy, Serious (Blank & Kytt) / CC BY 3.0
+The tape sound effects are from Pogotron’s sample on Freesound.org:
+Tape Recorder.wav by Pogotron
 
 Contact
 -------
