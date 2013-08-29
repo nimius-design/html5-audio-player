@@ -1,0 +1,14 @@
+plugin.tx_nimhtml5audioplayer {
+	view {
+		# cat=plugin.tx_nimhtml5audioplayer/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:nim_html5audioplayer/Resources/Private/Templates/
+		# cat=plugin.tx_nimhtml5audioplayer/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:nim_html5audioplayer/Resources/Private/Partials/
+		# cat=plugin.tx_nimhtml5audioplayer/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:nim_html5audioplayer/Resources/Private/Layouts/
+	}
+	persistence {
+		# cat=plugin.tx_nimhtml5audioplayer//a; type=string; label=Default storage PID
+		storagePid =
+	}
+}

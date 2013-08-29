@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-08-29T07:53:24Z" product-name="nim_html5audioplayer">
+		<header/>
+		<body>
+
+			<trans-unit id="name.description">
+				<source>name</source>
+			</trans-unit>
+			<trans-unit id="mp3.description">
+				<source>mp3</source>
+			</trans-unit>
+			<trans-unit id="ogg.description">
+				<source>ogg</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

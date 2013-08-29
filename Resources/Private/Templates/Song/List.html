@@ -1,0 +1,49 @@
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+<div id="audio-wrap" style="margin-top: 100px;">
+  <audio>
+    <source src="uploads/tx_ndmusic/{songNames.0.mp3}" data-title="{songName.0.name}" type="audio/mpeg" preload="auto" />
+    <source src="uploads/tx_ndmusic/{songNames.0.ogg}" data-title="{songName.0.name}" type="audio/ogg" preload="auto" >
+  </audio>
+</div>
+
+<div id="bars">
+    <div id="control">
+        <!-- placeholder -->
+    </div>
+    <!-- placeholder -->
+</div>
+
+<p class="currently-playing"></p>
+
+<ul id="control-wrap">
+    <li><a href="#" id="prev"><i class="icon-step-backward"></i></a></li>
+    <li><a href="#" id="play"><i class="icon-play"></i></a></li>
+    <li><a href="#" id="next"><i class="icon-step-forward"></i></a></li>
+</ul>
+
+<div id="playlist">
+  <h2>Playlist</h2>
+  <ul>
+    <f:for each="{songNames}" as="songName" iteration="iteration">
+      <li><a href="uploads/tx_ndmusic/{songName.mp3}" title="{songName.name}">{songName.name}</a></li>
+  </f:for>
+  </ul>
+</div>
+
+<fed:pageRenderer.addJsFooterFile file="{f:uri.resource(extensionName: 'nim_html5audioplayer', path: 'js/knobKnob.jquery.js')}" />
+<fed:pageRenderer.addJsFooterFile file="{f:uri.resource(extensionName: 'nim_html5audioplayer', path: 'js/player.js')}" />
+<fed:pageRenderer.addJsFooterFile file="{f:uri.resource(extensionName: 'nim_html5audioplayer', path: 'js/main.js')}" />
+</f:section>

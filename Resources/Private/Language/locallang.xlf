@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-08-29T07:53:24Z" product-name="nim_html5audioplayer">
+		<header/>
+		<body>
+
+			<trans-unit id="tx_nimhtml5audioplayer_domain_model_song">
+				<source>Song</source>
+			</trans-unit>
+			<trans-unit id="tx_nimhtml5audioplayer_domain_model_song.name">
+				<source>name</source>
+			</trans-unit>
+			<trans-unit id="tx_nimhtml5audioplayer_domain_model_song.mp3">
+				<source>mp3</source>
+			</trans-unit>
+			<trans-unit id="tx_nimhtml5audioplayer_domain_model_song.ogg">
+				<source>ogg</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_nimhtml5audioplayer_domain_model_mp3">
+				<source>Mp3</source>
+			</trans-unit>
+			<trans-unit id="tx_nimhtml5audioplayer_domain_model_mp3.mp3">
+				<source>mp3</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_nimhtml5audioplayer_domain_model_ogg">
+				<source>Ogg</source>
+			</trans-unit>
+			<trans-unit id="tx_nimhtml5audioplayer_domain_model_ogg.ogg">
+				<source>ogg</source>
+			</trans-unit>
+			
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,53 @@
+/*----------------------------
+	knobKnob Styles
+-----------------------------*/
+
+
+.knob{
+	width:124px;
+	height:124px;
+	position:relative;
+	float: left;
+	margin-right: 10px;
+}
+
+.knob .top{
+	position:absolute;
+	top:0;
+	left:0;
+	width:124px;
+	height:124px;
+	background:url('../img/ndmusic-sprites.png') no-repeat -218px 0;
+	z-index:10;
+	cursor:default !important;
+}
+
+.knob .base{
+	width:124px;
+	height:124px;
+	border-radius:50%;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:1;
+}
+
+.knob .top:after{
+	content:'';
+	width:10px;
+	height:10px;
+	background: url('../img/ndmusic-sprites.png') no-repeat -361px -20px;
+	/*background-color: #666;*/
+	position:absolute;
+	top:50%;
+	left:17px;
+	margin-top:-5px;
+	border-radius: 50%;
+	cursor:default !important;
+}
+
+.knob [draggable] {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
