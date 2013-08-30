@@ -17,7 +17,7 @@
 	left:0;
 	width:124px;
 	height:124px;
-	background:url('../img/ndmusic-sprites.png') no-repeat -218px 0;
+	background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat -218px 0;
 	z-index:10;
 	cursor:default !important;
 }
@@ -36,7 +36,7 @@
 	content:'';
 	width:10px;
 	height:10px;
-	background: url('../img/ndmusic-sprites.png') no-repeat -361px -20px;
+	background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat -361px -20px;
 	/*background-color: #666;*/
 	position:absolute;
 	top:50%;

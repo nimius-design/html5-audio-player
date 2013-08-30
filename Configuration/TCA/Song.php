@@ -3,6 +3,7 @@ if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
+
 $TCA['tx_nimhtml5audioplayer_domain_model_song'] = array(
 	'ctrl' => $TCA['tx_nimhtml5audioplayer_domain_model_song']['ctrl'],
 	'interface' => array(

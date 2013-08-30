@@ -1,0 +1,111 @@
+.icon-play {
+  display: block;
+  height: 51px;
+  width: 51px;
+  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat 0 0
+}
+
+.icon-pause {
+  display: block;
+  height: 51px;
+  width: 51px;
+  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat -55px 0;
+}
+
+.icon-step-forward {
+  display: block;
+  height: 51px;
+  width: 51px;
+  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat -161px 0;
+}
+
+.icon-step-backward {
+  display: block;
+  height: 51px;
+  width: 51px;
+  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat -110px 0;
+}
+.icon-play:hover {
+  display: block;
+  height: 51px;
+  width: 51px;
+  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat 0 -50px;
+}
+
+.icon-pause:hover {
+  display: block;
+  height: 51px;
+  width: 51px;
+  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat -55px -50px;
+}
+
+.icon-step-forward:hover {
+  display: block;
+  height: 51px;
+  width: 51px;
+  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat -161px -50px;
+}
+
+.icon-step-backward:hover {
+  display: block;
+  height: 51px;
+  width: 51px;
+  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat -110px -50px;
+}
+
+#control-wrap {
+  float: left;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  margin-top: 5px;
+}
+#control-wrap li {
+  list-style-type: none;
+  float: left;
+  margin-right: 10px;
+}
+
+#audio-wrap input {  }
+
+#playlist ul li {
+  cursor: pointer;
+}
+
+div.volume-knob {
+  float: left;
+  margin-right: 40px;
+}
+
+#control-wrap > span {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+#playlist {
+  float: right;
+  margin-top: -75px;
+  color: #CFB8B8;
+}
+
+#playlist ul li {
+  list-style-type: none;
+}
+
+#playlist ul {
+  margin-left: 0;
+}
+
+.knob {
+  display: none;
+}
+
+.knob:first-child {
+  display: block;
+}
+
+.currently-playing {
+  height: 30px;
+  width: 400px;
+  padding: 30px 0 0 142px;
+}

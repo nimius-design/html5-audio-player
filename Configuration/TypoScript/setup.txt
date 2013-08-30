@@ -1,3 +1,14 @@
+temp.tx_nimhtml5audioplayer = USER
+temp.tx_nimhtml5audioplayer {
+   userFunc = tx_extbase_core_bootstrap->run
+   pluginName = NIMIUS HTML5 Audio Player
+   extensionName = NIMIUS HTML5 Audio Player
+
+   settings =< plugin.tx_nimhtml5audioplayer.settings
+   persistence =< plugin.tx_nimhtml5audioplayer.persistence
+   view =< plugin.tx_nimhtml5audioplayer.view
+}
+
 plugin.tx_nimhtml5audioplayer {
 	view {
 		templateRootPath = {$plugin.tx_nimhtml5audioplayer.view.templateRootPath}
@@ -11,114 +22,18 @@ plugin.tx_nimhtml5audioplayer {
 		# uncomment the following line to enable the new Property Mapper.
 		# rewrittenPropertyMapper = 1
 	}
-
-  cssFile = typo3conf/ext/nim_html5audioplayer/knobKnob.css
+  settings {
+    cssFile1 = {$plugin.tx_nimhtml5audioplayer.settings.cssFile1}
+    cssFile2 = {$plugin.tx_nimhtml5audioplayer.settings.cssFile2}
+    lib {
+      knobknob = {$plugin.tx_nimhtml5audioplayer.settings.lib.knobknob}
+      player = {$plugin.tx_nimhtml5audioplayer.settings.lib.player}
+      main = {$plugin.tx_nimhtml5audioplayer.settings.lib.main}
+      moveToFooter = {$plugin.tx_nimhtml5audioplayer.settings.lib.moveToFooter}
+    }
+  }
 }
 
 plugin.tx_nimhtml5audioplayer._CSS_DEFAULT_STYLE (
-.icon-play {
-  display: block;
-  height: 51px;
-  width: 51px;
-  background: url('../../Resources/Public/img/ndmusic-sprites.png') no-repeat 0 0
-}
-
-.icon-pause {
-  display: block;
-  height: 51px;
-  width: 51px;
-  background: url('../../Resources/Public/img/ndmusic-sprites.png') no-repeat -55px 0;
-}
-
-.icon-step-forward {
-  display: block;
-  height: 51px;
-  width: 51px;
-  background: url('../../Resources/Public/img/ndmusic-sprites.png') no-repeat -161px 0;
-}
-
-.icon-step-backward {
-  display: block;
-  height: 51px;
-  width: 51px;
-  background: url('../../Resources/Public/img/ndmusic-sprites.png') no-repeat -110px 0;
-}
-.icon-play:hover {
-  display: block;
-  height: 51px;
-  width: 51px;
-  background: url('../../Resources/Public/img/ndmusic-sprites.png') no-repeat 0 -50px;
-}
-
-.icon-pause:hover {
-  display: block;
-  height: 51px;
-  width: 51px;
-  background: url('../../Resources/Public/img/ndmusic-sprites.png') no-repeat -55px -50px;
-}
-
-.icon-step-forward:hover {
-  display: block;
-  height: 51px;
-  width: 51px;
-  background: url('../../Resources/Public/img/ndmusic-sprites.png') no-repeat -161px -50px;
-}
-
-.icon-step-backward:hover {
-  display: block;
-  height: 51px;
-  width: 51px;
-  background: url('../../Resources/Public/img/ndmusic-sprites.png') no-repeat -110px -50px;
-}
-
-#control-wrap {
-  float: left;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  margin-top: 5px;
-}
-#control-wrap li {
-  list-style-type: none;
-  float: left;
-  margin-right: 10px;
-}
-
-#playlist ul li {
-  cursor: pointer;
-}
-
-div.volume-knob {
-  float: left;
-  margin-right: 40px;
-}
-
-#control-wrap > span {
-  display: inline-block;
-  margin-right: 8px;
-}
-
-#playlist {
-  float: right;
-  margin-top: -75px;
-  color: #CFB8B8;
-}
-#playlist ul li {
-  list-style-type: none;
-}
-#playlist ul {
-  margin-left: 0;
-}
-.knob {
-  display: none;
-}
-.knob:first-child {
-  display: block;
-}
-.currently-playing {
-  height: 30px;
-  width: 400px;
-  padding: 30px 0 0 142px;
-}
 
 )

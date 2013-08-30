@@ -11,4 +11,14 @@ plugin.tx_nimhtml5audioplayer {
 		# cat=plugin.tx_nimhtml5audioplayer//a; type=string; label=Default storage PID
 		storagePid =
 	}
+  settings {
+    cssFile1 = EXT:nim_html5audioplayer/Resources/Public/Css/main.css
+    cssFile2 = EXT:nim_html5audioplayer/Resources/Public/Css/knobKnob.css
+    lib {
+      knobknob = EXT:nim_html5audioplayer/Resources/Public/Js/knobKnob.ja
+      player = EXT:nim_html5audioplayer/Resources/Public/Js/player.ja
+      main = EXT:nim_html5audioplayer/Resources/Public/Js/main.ja
+      moveToFooter = 1
+    }
+  }
 }

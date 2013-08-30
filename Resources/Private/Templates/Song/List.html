@@ -1,3 +1,4 @@
+{namespace hk=Tx_Helperkit_ViewHelpers}
 <f:layout name="Default" />
 
 This Template is responsible for creating a table of domain objects.
@@ -42,8 +43,9 @@ Otherwise your changes will be overwritten the next time you save the extension 
   </f:for>
   </ul>
 </div>
-
-<fed:pageRenderer.addJsFooterFile file="{f:uri.resource(extensionName: 'nim_html5audioplayer', path: 'js/knobKnob.jquery.js')}" />
-<fed:pageRenderer.addJsFooterFile file="{f:uri.resource(extensionName: 'nim_html5audioplayer', path: 'js/player.js')}" />
-<fed:pageRenderer.addJsFooterFile file="{f:uri.resource(extensionName: 'nim_html5audioplayer', path: 'js/main.js')}" />
+<hk:asset.cssJs file="{settings.lib.knobKnob}" moveToFooter="{settings.lib.moveToFooter}" />
+<hk:asset.cssJs file="{settings.lib.player}" moveToFooter="{settings.lib.moveToFooter}" />
+<hk:asset.cssJs file="{settings.lib.main}" moveToFooter="{settings.lib.moveToFooter}" />
+<hk:asset.cssJs file="{settings.cssFile1}" />
+<hk:asset.cssJs file="{settings.cssFile2}" />
 </f:section>
