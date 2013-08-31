@@ -18,17 +18,17 @@
 		// config
 		var settings = $.extend({
 			volume: 0.8,
-			playlistId: 'playlist'
+			playlistId: 'audio-playlist'
 
 		}, options);
 
 		this.each(function(){
-			
-			var $this = $(this), 
+
+			var $this = $(this),
 				$miniPlayer = $this.get(0),
-				$playButton = $('#play'),
-				$nextButton = $('#next'),
-				$prevButton = $('#prev'),
+				$playButton = $('.audio-controllerPlay'),
+				$nextButton = $('.audio-controllerNext'),
+				$prevButton = $('.audio-controllerPrev'),
 				$currentlyPlaying = $('.currently-playing'),
 				$currentSong = $($miniPlayer).find('source').attr('src');
 				$currentSongText = $($miniPlayer).find('source').data('title');
@@ -37,17 +37,17 @@
 			$miniPlayer.volume = options.volume;
 
 			// play button click handler
-			$('#play').on('click', function(e){
+			$('.audio-controllerPlay').on('click', function(e){
 				e.preventDefault();
 				if($miniPlayer.paused){
 					$miniPlayer.play();
 					if(!$.trim($('.currently-playing').html()).length){
 						$('.currently-playing').text($currentSongText);
 					}
-					$playButton.find('i').removeClass('icon-play').addClass('icon-pause');
+					$playButton.removeClass('.audio-controllerPlay').addClass('audio-controllerPause');
 				} else {
 					$miniPlayer.pause();
-					$playButton.find('i').removeClass('icon-pause').addClass('icon-play');
+					$playButton.removeClass('audio-controllerPause').addClass('audio-controllerPlay');
 				}
 			});
 
@@ -78,7 +78,7 @@
 			});
 
 			// next button click handler
-			$('#next').on('click', function(e){
+			$('.audio-controllerNext').on('click', function(e){
 				e.preventDefault();
 				if($miniPlayer.paused === false){
 
@@ -89,7 +89,7 @@
 						$theNextSong = songNameArray[$theCurrentIndex+1];
 						$theNextSongTitle = songNameTitleArray[$theCurrentIndex+1];
 						$this.find('source').attr('src', $theNextSong);
-						$miniPlayer.load();						
+						$miniPlayer.load();
 						$miniPlayer.play();
 						// $currentlyPlaying.text($theNextSong);
 						$currentlyPlaying.text($theNextSongTitle);
@@ -99,7 +99,7 @@
 			});
 
 			// previous button click handler
-			$('#prev').on('click', function(e){
+			$('.audio-controllerPrev').on('click', function(e){
 				e.preventDefault();
 				if($miniPlayer.paused === false){
 
@@ -110,7 +110,7 @@
 						$thePrevSong = songNameArray[$theCurrentIndex-1];
 						$thePrevSongText = songNameTitleArray[$theCurrentIndex-1];
 						$this.find('source').attr('src', $thePrevSong);
-						$miniPlayer.load();						
+						$miniPlayer.load();
 						$miniPlayer.play();
 						$currentlyPlaying.text($thePrevSongText);
 					}
@@ -124,10 +124,10 @@
 				$theSong = $(this).attr('href');
 				$theSongTitle = $(this).attr('title');
 				$this.find('source').attr('src', $theSong);
-				$miniPlayer.load();						
+				$miniPlayer.load();
 				$miniPlayer.play();
 				$currentlyPlaying.text($theSongTitle);
-				$playButton.find('i').removeClass('icon-play').addClass('icon-pause');
+				$playButton.removeClass('audio-controllerPlay').addClass('audio-controllerPause');
 
 			});
 

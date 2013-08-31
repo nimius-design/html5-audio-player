@@ -1,111 +1,77 @@
-.icon-play {
+.audio-controllerPlay {
   display: block;
   height: 51px;
   width: 51px;
-  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat 0 0
+  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat 0 -5px;
 }
 
-.icon-pause {
+.audio-controllerPause {
   display: block;
   height: 51px;
   width: 51px;
-  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat -55px 0;
+  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat -55px -5px;
 }
 
-.icon-step-forward {
+.audio-controllerNext {
   display: block;
   height: 51px;
   width: 51px;
-  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat -161px 0;
+  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat -161px -5px;
 }
 
-.icon-step-backward {
+.audio-controllerPrev {
   display: block;
   height: 51px;
   width: 51px;
-  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat -110px 0;
+  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat -110px -5px;
 }
-.icon-play:hover {
+.audio-controllerPlay:hover {
   display: block;
   height: 51px;
   width: 51px;
-  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat 0 -50px;
-}
-
-.icon-pause:hover {
-  display: block;
-  height: 51px;
-  width: 51px;
-  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat -55px -50px;
+  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat 0 -60px;
 }
 
-.icon-step-forward:hover {
+.audio-controllerPause:hover {
   display: block;
   height: 51px;
   width: 51px;
-  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat -161px -50px;
+  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat -55px -60px;
 }
 
-.icon-step-backward:hover {
+.audio-controllerNext:hover {
   display: block;
   height: 51px;
   width: 51px;
-  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat -110px -50px;
+  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat -161px -60px;
 }
 
-#control-wrap {
+.audio-controllerPrev:hover {
+  display: block;
+  height: 51px;
+  width: 51px;
+  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat -110px -60px;
+}
+
+.audio-controller {
+  clear: both;
+}
+
+.audio-controller:after {
+  clear: both;
+}
+
+.audio-controller:before,
+.audio-controller:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+
+.audio-controller li {
   float: left;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  margin-top: 5px;
-}
-#control-wrap li {
-  list-style-type: none;
-  float: left;
-  margin-right: 10px;
 }
 
-#audio-wrap input {  }
-
-#playlist ul li {
+.audio-controller li {
   cursor: pointer;
-}
-
-div.volume-knob {
-  float: left;
-  margin-right: 40px;
-}
-
-#control-wrap > span {
-  display: inline-block;
-  margin-right: 8px;
-}
-
-#playlist {
-  float: right;
-  margin-top: -75px;
-  color: #CFB8B8;
-}
-
-#playlist ul li {
-  list-style-type: none;
-}
-
-#playlist ul {
-  margin-left: 0;
-}
-
-.knob {
-  display: none;
-}
-
-.knob:first-child {
-  display: block;
-}
-
-.currently-playing {
-  height: 30px;
-  width: 400px;
-  padding: 30px 0 0 142px;
 }

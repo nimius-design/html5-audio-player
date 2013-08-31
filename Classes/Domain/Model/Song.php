@@ -5,7 +5,7 @@ namespace TYPO3\NimHtml5audioplayer\Domain\Model;
  *  Copyright notice
  *
  *  (c) 2013 NIMIUS HTML5 Audio Player <nicki@nimius.net>, NIMIUS
- *  
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is

@@ -26,10 +26,9 @@ plugin.tx_nimhtml5audioplayer {
     cssFile1 = {$plugin.tx_nimhtml5audioplayer.settings.cssFile1}
     cssFile2 = {$plugin.tx_nimhtml5audioplayer.settings.cssFile2}
     lib {
+      jquery = {$plugin.tx_nimhtml5audioplayer.settings.lib.jquery}
       knobknob = {$plugin.tx_nimhtml5audioplayer.settings.lib.knobknob}
       player = {$plugin.tx_nimhtml5audioplayer.settings.lib.player}
-      main = {$plugin.tx_nimhtml5audioplayer.settings.lib.main}
-      moveToFooter = {$plugin.tx_nimhtml5audioplayer.settings.lib.moveToFooter}
     }
   }
 }

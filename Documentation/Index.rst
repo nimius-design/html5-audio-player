@@ -17,8 +17,8 @@ Extension Name
 :Description: manuals covering TYPO3 extension "NIMIUS HTML5 Audio Player"
 :Language: en
 :Author: NIMIUS HTML5 Audio Player
-:Creation: 2013-08-29
-:Generation: 07:53
+:Creation: 2013-08-31
+:Generation: 09:04
 :Licence: Open Content License available from `www.opencontent.org/opl.shtml <http://www.opencontent.org/opl.shtml>`_
 
 The content of this document is related to TYPO3, a GNU/GPL CMS/Framework available from `www.typo3.org
