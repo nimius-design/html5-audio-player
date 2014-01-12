@@ -34,7 +34,7 @@
 				$currentSongText = $($miniPlayer).find('source').data('title');
 
 			// set volume
-			$miniPlayer.volume = options.volume;
+			$miniPlayer.volume = settings.volume;
 
 			// play button click handler
 			$('.audio-controllerPlay').on('click', function(e){
@@ -62,7 +62,7 @@
 			});
 
 			// playlist
-			var playlistId = options.playlistId,
+			var playlistId = settings.playlistId,
 				$playlistSelector = $('#' + playlistId);
 				$playlistArray = $playlistSelector.find('a'),
 				playlistArrayLength = $playlistArray.length,

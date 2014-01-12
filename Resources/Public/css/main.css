@@ -70,8 +70,6 @@
 
 .audio-controller li {
   float: left;
-}
-
-.audio-controller li {
   cursor: pointer;
+  list-style-type: none;
 }
