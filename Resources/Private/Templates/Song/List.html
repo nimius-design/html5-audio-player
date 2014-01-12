@@ -1,4 +1,3 @@
-{namespace hk=Tx_Helperkit_ViewHelpers}
 <f:layout name="Default" />
 
 This Template is responsible for creating a table of domain objects.
@@ -17,13 +16,12 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <section class="audio-player" id="audio-player" style="margin-top: 200px;">
   <div class="audio-wrap" id="audio-wrap">
     <audio>
-      <source src="uploads/tx_nimhtml5audioplayer/{songs.0.mp3}" data-title="{songs.0.name}" type="audio/mpeg" preload="auto" />
-      <source src="uploads/tx_nimhtml5audioplayer/{songs.0.ogg}" data-title="{songs.0.name}" type="audio/ogg" preload="auto" >
+      <source src="uploads/tx_nimhtml5audioplayer/{songs.0.mp3.mp3}" data-title="{songs.0.name}" type="audio/mpeg" preload="auto" />
+      <source src="uploads/tx_nimhtml5audioplayer/{songs.0.ogg.ogg}" data-title="{songs.0.name}" type="audio/ogg" preload="auto" />ADUIOhdfjsdfgj
     </audio>
   </div>
 
   <p class="currently-playing"></p>
-
   <ul class="audio-controller" id="audio-controller">
       <li>
         <div id="bars">
@@ -42,14 +40,19 @@ Otherwise your changes will be overwritten the next time you save the extension 
     <h2>Playlist</h2>
     <ul>
       <f:for each="{songs}" as="song" iteration="iteration">
-        <li><a href="uploads/tx_nimhtml5audioplayer/{song.mp3}" title="{song.name}">{song.name}</a></li>
+        <li><a href="uploads/tx_nimhtml5audioplayer/{song.mp3.mp3}" title="{song.name}">{song.name}</a></li>
     </f:for>
     </ul>
   </div>
 </section>
-<hk:asset.cssJs file="{settings.lib.jquery}" />
-<hk:asset.cssJs file="{settings.lib.knobknob}" />
-<hk:asset.cssJs file="{settings.lib.player}" />
-<hk:asset.cssJs file="{settings.cssFile1}" />
-<hk:asset.cssJs file="{settings.cssFile2}" />
+
+
+<!--
+  @TODO move this outside of the template
+-->
+<script>
+  window.onload = function(){
+  $("#audio-player audio").player({volume:0.8});
+}
+</script>
 </f:section>

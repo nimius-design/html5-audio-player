@@ -22,16 +22,15 @@ plugin.tx_nimhtml5audioplayer {
 		# uncomment the following line to enable the new Property Mapper.
 		# rewrittenPropertyMapper = 1
 	}
-  settings {
-    cssFile1 = {$plugin.tx_nimhtml5audioplayer.settings.cssFile1}
-    cssFile2 = {$plugin.tx_nimhtml5audioplayer.settings.cssFile2}
-    lib {
-      jquery = {$plugin.tx_nimhtml5audioplayer.settings.lib.jquery}
-      knobknob = {$plugin.tx_nimhtml5audioplayer.settings.lib.knobknob}
-      player = {$plugin.tx_nimhtml5audioplayer.settings.lib.player}
-    }
-  }
 }
+
+page.includeJSFooter.nim_html5audioplayer_jQuery = {$plugin.tx_nimhtml5audioplayer.settings.lib.jquery}
+page.includeJSFooter.nim_html5audioplayer_knobknob = {$plugin.tx_nimhtml5audioplayer.settings.lib.knobknob}
+page.includeJSFooter.nim_html5audioplayer_player = {$plugin.tx_nimhtml5audioplayer.settings.lib.player}
+
+
+page.includeCSS.nim_html5audioplayer_1 = {$plugin.tx_nimhtml5audioplayer.settings.cssFile1}
+page.includeCSS.nim_html5audioplayer_2 = {$plugin.tx_nimhtml5audioplayer.settings.cssFile2}
 
 plugin.tx_nimhtml5audioplayer._CSS_DEFAULT_STYLE (
 
