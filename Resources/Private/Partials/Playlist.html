@@ -2,7 +2,7 @@
     <h2>Playlist</h2>
     <ul>
       <f:for each="{songs}" as="song" iteration="iteration">
-        <li><a href="uploads/tx_nimhtml5audioplayer/{song.mp3.mp3}" title="{song.name}">{song.name}</a></li>
+        <li><span class="song" data-mp3="{song.mp3.mp3}" data-ogg="{song.ogg.ogg}" title="{song.name}">{song.name}</span></li>
     </f:for>
     </ul>
   </div>

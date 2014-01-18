@@ -18,118 +18,273 @@
 		// config
 		var settings = $.extend({
 			volume: 0.8,
-			playlistId: 'audio-playlist'
+      // deprecated!!
+			playlistId: 'audio-playlist',
+
+      playlist:     '#audio-playlist',
+      playlistItem: '.song',
+
+      playlistOGGAttribute:   'data-ogg',
+      playlistMP3Attribute:   'data-mp3',
+      playlisttitleAttribute:   'title',
+
+      playButton:   '.audio-controllerPlay',
+      nextButton:   '.audio-controllerNext',
+      prevButton:   '.audio-controllerPrev',
+      pauseClass:    'audio-controllerPause',
+
+      currentlyPlaying:   '.currently-playing',
+
+      uploadFolder:     'uploads/tx_nimhtml5audioplayer/',
 
 		}, options);
 
 		this.each(function(){
 
+      // get HTML objects
 			var $this = $(this),
 				$miniPlayer = $this.get(0),
-				$playButton = $('.audio-controllerPlay'),
-				$nextButton = $('.audio-controllerNext'),
-				$prevButton = $('.audio-controllerPrev'),
-				$currentlyPlaying = $('.currently-playing'),
+				$playButton = $(settings.playButton),
+				$nextButton = $(settings.nextButton),
+				$prevButton = $(settings.prevButton),
+				$currentlyPlaying = $(settings.currentlyPlaying),
+
+        // deprecated
 				$currentSong = $($miniPlayer).find('source').attr('src');
+        // deprecated
 				$currentSongText = $($miniPlayer).find('source').data('title');
 
-			// set volume
-			$miniPlayer.volume = settings.volume;
+      var $playlist = $(settings.playlist);
+      var $playlistItems = $playlist.find(settings.playlistItem);
 
-			// play button click handler
-			$('.audio-controllerPlay').on('click', function(e){
-				e.preventDefault();
-				if($miniPlayer.paused){
-					$miniPlayer.play();
-					if(!$.trim($('.currently-playing').html()).length){
-						$('.currently-playing').text($currentSongText);
-					}
-					$playButton.removeClass('.audio-controllerPlay').addClass('audio-controllerPause');
-				} else {
-					$miniPlayer.pause();
-					$playButton.removeClass('audio-controllerPause').addClass('audio-controllerPlay');
-				}
-			});
 
-			// volume knob (depends on external plugin)
-			$('#control').knobKnob({
-				snap : 10,
-				value: 359 * $miniPlayer.volume,
-				turn : function(ratio){
-					$miniPlayer.volume = ratio;
-					// $('.volume-info span').text(Math.round(ratio*100) + '%');
-				}
-			});
+      // ============================================================================================================
+      //               OBJECTS
 
-			// playlist
-			var playlistId = settings.playlistId,
-				$playlistSelector = $('#' + playlistId);
-				$playlistArray = $playlistSelector.find('a'),
-				playlistArrayLength = $playlistArray.length,
-				songNameArray = [];
-				songNameTitleArray = [];
+      /**
+       * The Song object
+       * @param  {object} inp object input in the type of {mp3: … ogg: … name: …}
+       * @return {void}
+       */
+      function song(inp){
+        if(inp.mp3)  this.mp3 = inp.mp3;
+        if(inp.ogg)  this.ogg = inp.ogg;
+        if(inp.name)  this.name = inp.name;
+        if(inp.id)  this.id = inp.id;
+        console.log(inp);
+      }
 
-			$.each($playlistArray, function(index, val) {
-				var $el = $(val);
-				var $theSongName = $el.attr('href');
-				var $theSongNameTitle = $el.attr('title');
-				songNameArray.push($theSongName);
-				songNameTitleArray.push($theSongNameTitle);
-			});
 
-			// next button click handler
-			$('.audio-controllerNext').on('click', function(e){
-				e.preventDefault();
-				if($miniPlayer.paused === false){
+      // ------------------------------------------------------------------
 
-					var $currentSong = $($miniPlayer).find('source').attr('src');
-					var $theCurrentIndex = $.inArray($currentSong, songNameArray);
+      function knob(){
+        $('#control').knobKnob({
+          snap : 10,
+          value: 359 * player.player.volume,
+          turn : function(ratio){
+            player.setVolume(ratio);
+          }
+        });
+      }
 
-					if($theCurrentIndex < playlistArrayLength-1){
-						$theNextSong = songNameArray[$theCurrentIndex+1];
-						$theNextSongTitle = songNameTitleArray[$theCurrentIndex+1];
-						$this.find('source').attr('src', $theNextSong);
-						$miniPlayer.load();
-						$miniPlayer.play();
-						// $currentlyPlaying.text($theNextSong);
-						$currentlyPlaying.text($theNextSongTitle);
-					}
+      // ------------------------------------------------------------------
 
-				}
-			});
+      function playButton(){
+        this.button = $(settings.playButton);
+        this.playing;
+      }
 
-			// previous button click handler
-			$('.audio-controllerPrev').on('click', function(e){
-				e.preventDefault();
-				if($miniPlayer.paused === false){
+      playButton.prototype.pause = function(){
+        this.button.removeClass(settings.pauseClass);
+        this.button.addClass(settings.playButton);
+        this.playing = false;
+      }
 
-					var $currentSong = $($miniPlayer).find('source').attr('src');
-					var $theCurrentIndex = $.inArray($currentSong, songNameArray);
+      playButton.prototype.play  = function(){
+        this.button.addClass(settings.pauseClass);
+        this.button.removeClass(settings.playButton);
+        this.playing = true;
+      }
 
-					if($theCurrentIndex !== 0){
-						$thePrevSong = songNameArray[$theCurrentIndex-1];
-						$thePrevSongText = songNameTitleArray[$theCurrentIndex-1];
-						$this.find('source').attr('src', $thePrevSong);
-						$miniPlayer.load();
-						$miniPlayer.play();
-						$currentlyPlaying.text($thePrevSongText);
-					}
+      // ------------------------------------------------------------------
 
-				}
-			});
+      /**
+       * Playlist object
+       * @return {void}
+       */
+      function playlist(){
+        playlist = this;
 
-			// playlist song(s) click event(s)
-			$playlistSelector.on('click', 'a', function(e) {
-				e.preventDefault();
-				$theSong = $(this).attr('href');
-				$theSongTitle = $(this).attr('title');
-				$this.find('source').attr('src', $theSong);
-				$miniPlayer.load();
-				$miniPlayer.play();
-				$currentlyPlaying.text($theSongTitle);
-				$playButton.removeClass('audio-controllerPlay').addClass('audio-controllerPause');
+        // for some weird reason we have to start at 1 here
+        this.currentSong = 1;
+        // build the actual playlist
+        this.songs = [{},];
+        $playlistItems.each(function(n,v){
+          console.log([typeof(n),n]);
+          var id = n+1;
+          playlist.songs.push(new song({
+            name: $(this).attr(settings.playlisttitleAttribute) ? $(this).attr(settings.playlisttitleAttribute) : false,
+            mp3:  $(this).attr(settings.playlistMP3Attribute) ? $(this).attr(settings.playlistMP3Attribute) : false,
+            ogg:  $(this).attr(settings.playlistOGGAttribute) ? $(this).attr(settings.playlistOGGAttribute) : false,
+            id:   parseInt(id),
+          }));
+          $(this).click(function(){
+            player.setSong(playlist.songs[id]);
+            player.player.load();
+            player.play();
+          });
+        });
 
-			});
+        console.log(playlist);
+      }
+
+      /**
+       * next function: increases current counter and returns the new song object
+       * @return {song}
+       */
+      playlist.prototype.next = function(){
+        var nextSong;
+        if(this.currentSong+1 < this.songs.length){
+          nextSong = this.currentSong+1;
+        } else {
+          nextSong = 1;
+        }
+
+        this.currentSong = nextSong;
+        return this.songs[nextSong];
+      }
+
+      /**
+       * prev function: decreases the current counter and returns the new song object
+       * @return {song}
+       */
+      playlist.prototype.prev = function(){
+        var prevSong;
+        if(this.currentSong-1 >= 1){
+          prevSong = this.currentSong-1;
+        } else {
+          prevSong = this.songs.length-1;
+        }
+
+        this.currentSong = prevSong;
+        console.log(["nextSong in playlist.prev d()",prevSong]);
+        return this.songs[prevSong];
+      }
+
+
+      // ------------------------------------------------------------------
+
+      /**
+       * the player object
+       * @param  {object} palyer the player object
+       * @return {void}
+       */
+      function player(player){
+        this.player = player;
+        this.playButton = new playButton();
+        // this.knob = new knob();
+        this.playlist = new playlist();
+      }
+
+      /**
+       * sets the label for the song
+       * @param {song} song
+       */
+      player.prototype.setLabel = function(song){
+        console.log(["song in setLabel",song]);
+        $currentlyPlaying.html(song.name);
+      }
+
+      /**
+       * actually sets the song for us
+       * @param {song} song a valid song object
+       */
+      player.prototype.setSong = function(song){
+        var out = "";
+        if(song.mp3){
+          out += '<source src="'+settings.uploadFolder+'/'+song.mp3+'" data-title="'+song.name+'" type="audio/mpeg" preload="auto" />'
+        }
+        if(song.ogg){
+          out += '<source src="'+settings.uploadFolder+'/'+song.ogg+'" data-title="'+song.name+'" type="audio/ogg" preload="auto" />'
+        }
+        console.log(this.player);
+        this.player.innerHTML = out;
+        this.setLabel(song);
+        this.playlist.currentSong = song.id;
+      }
+
+      /**
+       * i guess you can guess what this does
+       * @return {void}
+       */
+      player.prototype.next = function(){
+        var playing = !this.player.paused;
+        this.setSong(this.playlist.next());
+        this.player.load();
+        if(playing){this.play();}
+      }
+
+      /**
+       * i guess you can guess what this does
+       * @return {void}
+       */
+      player.prototype.prev = function(){
+        var playing = !this.player.paused;
+        this.setSong(this.playlist.prev());
+        this.player.load();
+        if(playing){this.play();}
+      }
+
+      player.prototype.play = function(){
+        this.setLabel(this.playlist.songs[this.playlist.currentSong]);
+        this.player.play();
+        this.playButton.play();
+      }
+
+      player.prototype.pause = function(){
+        this.player.pause();
+        this.playButton.pause();
+      }
+
+      player.prototype.toggleplay = function(){
+        if(this.player.paused){
+          this.play();
+        } else {
+          this.pause();
+        }
+      }
+
+      player.prototype.setVolume = function(vol){
+        this.player.volume = vol;
+      }
+
+
+
+
+      player = new player($this.get(0));
+      player.knob = new knob();
+
+      player.setSong(player.playlist.songs[player.playlist.currentSong]);
+
+
+      // =====================================================================
+      //                          // EVENT HANDLERS
+
+      $(settings.playButton).click(function(){
+        player.play();
+      });
+
+      $(settings.pauseClass).click(function(){
+        player.pause();
+      });
+
+      $(settings.nextButton).click(function(){
+        player.next();
+      })
+
+      $(settings.prevButton).click(function(){
+        player.prev();
+      });
 
 		});
 
