@@ -5,7 +5,7 @@ namespace TYPO3\NimHtml5audioplayer\Domain\Model;
  *  Copyright notice
  *
  *  (c) 2013 NIMIUS HTML5 Audio Player <nicki@nimius.net>, NIMIUS
- *  
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -49,16 +49,5 @@ class Ogg extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function getOgg() {
 		return $this->ogg;
 	}
-
-	/**
-	 * Sets the ogg
-	 *
-	 * @param \string $ogg
-	 * @return void
-	 */
-	public function setOgg($ogg) {
-		$this->ogg = $ogg;
-	}
-
 }
 ?>

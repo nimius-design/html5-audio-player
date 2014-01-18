@@ -5,7 +5,7 @@ namespace TYPO3\NimHtml5audioplayer\Domain\Model;
  *  Copyright notice
  *
  *  (c) 2013 NIMIUS HTML5 Audio Player <nicki@nimius.net>, NIMIUS
- *  
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -49,16 +49,5 @@ class Mp3 extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function getMp3() {
 		return $this->mp3;
 	}
-
-	/**
-	 * Sets the mp3
-	 *
-	 * @param \string $mp3
-	 * @return void
-	 */
-	public function setMp3($mp3) {
-		$this->mp3 = $mp3;
-	}
-
 }
 ?>

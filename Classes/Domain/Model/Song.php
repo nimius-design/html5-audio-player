@@ -65,16 +65,6 @@ class Song extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
-	 * Sets the name
-	 *
-	 * @param \string $name
-	 * @return void
-	 */
-	public function setName($name) {
-		$this->name = $name;
-	}
-
-	/**
 	 * Returns the mp3
 	 *
 	 * @return \TYPO3\NimHtml5audioplayer\Domain\Model\Mp3 $mp3
@@ -84,32 +74,12 @@ class Song extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
-	 * Sets the mp3
-	 *
-	 * @param \TYPO3\NimHtml5audioplayer\Domain\Model\Mp3 $mp3
-	 * @return void
-	 */
-	public function setMp3(\TYPO3\NimHtml5audioplayer\Domain\Model\Mp3 $mp3) {
-		$this->mp3 = $mp3;
-	}
-
-	/**
 	 * Returns the ogg
 	 *
 	 * @return \TYPO3\NimHtml5audioplayer\Domain\Model\Ogg $ogg
 	 */
 	public function getOgg() {
 		return $this->ogg;
-	}
-
-	/**
-	 * Sets the ogg
-	 *
-	 * @param \TYPO3\NimHtml5audioplayer\Domain\Model\Ogg $ogg
-	 * @return void
-	 */
-	public function setOgg(\TYPO3\NimHtml5audioplayer\Domain\Model\Ogg $ogg) {
-		$this->ogg = $ogg;
 	}
 
 }
