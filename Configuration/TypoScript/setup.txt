@@ -24,13 +24,13 @@ plugin.tx_nimhtml5audioplayer {
 	}
 }
 
-page.includeJSFooter.nim_html5audioplayer_jQuery = {$plugin.tx_nimhtml5audioplayer.settings.lib.jquery}
-page.includeJSFooter.nim_html5audioplayer_knobknob = {$plugin.tx_nimhtml5audioplayer.settings.lib.knobknob}
 page.includeJSFooter.nim_html5audioplayer_player = {$plugin.tx_nimhtml5audioplayer.settings.lib.player}
+page.includeJSFooter.nim_html5audioplayer_knob = EXT:nim_html5audioplayer/Resources/Public/Js/jim-knopf/dist/knob.js
+# page.includeJSFooter.nim_html5audioplayer_playerjQuery = {$plugin.tx_nimhtml5audioplayer.settings.lib.playerjQuery}
 
 
 page.includeCSS.nim_html5audioplayer_1 = {$plugin.tx_nimhtml5audioplayer.settings.cssFile1}
-page.includeCSS.nim_html5audioplayer_2 = {$plugin.tx_nimhtml5audioplayer.settings.cssFile2}
+# page.includeCSS.nim_html5audioplayer_2 = {$plugin.tx_nimhtml5audioplayer.settings.cssFile2}
 
 plugin.tx_nimhtml5audioplayer._CSS_DEFAULT_STYLE (
 

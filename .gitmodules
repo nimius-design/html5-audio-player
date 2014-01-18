@@ -1,0 +1,3 @@
+[submodule "Resources/Public/js/jim-knopf"]
+	path = Resources/Public/js/jim-knopf
+url=git@github.com:thephpjo/jim-knopf.git

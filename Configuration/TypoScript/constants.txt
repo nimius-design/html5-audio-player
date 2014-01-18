@@ -15,9 +15,8 @@ plugin.tx_nimhtml5audioplayer {
     cssFile1 = EXT:nim_html5audioplayer/Resources/Public/Css/main.css
     cssFile2 = EXT:nim_html5audioplayer/Resources/Public/Css/knobKnob.css
     lib {
-      jquery = EXT:nim_html5audioplayer/Resources/Public/Js/jquery-1.10.2.min.js
-      knobknob = EXT:nim_html5audioplayer/Resources/Public/Js/knobKnob.jquery.js
       player = EXT:nim_html5audioplayer/Resources/Public/Js/player.js
+      playerjQuery = EXT:nim_html5audioplayer/Resources/Public/Js/player.jquery.js
     }
   }
 }
