@@ -14,36 +14,11 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <f:section name="main">
 
 <section class="audio-player" id="audio-player" style="margin-top: 200px;">
-  <div class="audio-wrap" id="audio-wrap">
-    <audio>
-      <source src="uploads/tx_nimhtml5audioplayer/{songs.0.mp3.mp3}" data-title="{songs.0.name}" type="audio/mpeg" preload="auto" />
-      <source src="uploads/tx_nimhtml5audioplayer/{songs.0.ogg.ogg}" data-title="{songs.0.name}" type="audio/ogg" preload="auto" />ADUIOhdfjsdfgj
-    </audio>
-  </div>
-
+  <f:render partial="Player" arguments="{song: songs.0}"/>
   <p class="currently-playing"></p>
-  <ul class="audio-controller" id="audio-controller">
-      <li>
-        <div id="bars">
-            <div id="control">
-                <!-- placeholder -->
-            </div>
-            <!-- placeholder -->
-        </div>
-      </li>
-      <li class="audio-controllerPrev">&nbsp;</li>
-      <li class="audio-controllerPlay">&nbsp;</li>
-      <li class="audio-controllerNext">&nbsp;</li>
-  </ul>
+  <f:render partial="Controls" />
 
-  <div class="audio-playlist" id="audio-playlist">
-    <h2>Playlist</h2>
-    <ul>
-      <f:for each="{songs}" as="song" iteration="iteration">
-        <li><a href="uploads/tx_nimhtml5audioplayer/{song.mp3.mp3}" title="{song.name}">{song.name}</a></li>
-    </f:for>
-    </ul>
-  </div>
+  <f:render partial="Playlist" arguments="{songs: songs}" />
 </section>
 
 
