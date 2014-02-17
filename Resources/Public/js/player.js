@@ -100,6 +100,10 @@ function HTML5audioplayer(inp){
   this.setVolume = function(vol){
     this.player.volume = vol;
   }
+
+  this.returnSong = function(inp){
+    return new song(inp);
+  }
   //
   // ===============================================
   //                initialization
@@ -120,7 +124,6 @@ function HTML5audioplayer(inp){
   });
   // this.knob = new knob();
   this.playlist = new playlist(this.settings.songSelector);
-
   // set the first song
   this.setSong(this.playlist.songs[1]);
 
