@@ -13,7 +13,6 @@ function HTML5audioplayer(inp){
     nextClass:        'audio-controllerNext',
     prevClass:       'audio-controllerPrev',
     songSelector:     '#audio-playlist .song',
-    currentlyPlaying: '.currently-playing',
 
     knob:             '#control .knob',
 
@@ -39,8 +38,11 @@ function HTML5audioplayer(inp){
   * @param {song} song
   */
   this.setLabel = function(song){
-    // console.log(["song in setLabel",song]);
-    this.label.innerHTML = song.name;
+    var songs = document.querySelectorAll(this.settings.songSelector);
+    for(var i = 0; i < songs.length; i++){
+      songs[i].className = "song";
+    }
+    songs[song.id-1].className = "song active";
   }
 
   /**
@@ -114,7 +116,7 @@ function HTML5audioplayer(inp){
   this.player = (typeof(this.settings.player) == "object") ? this.settings.player : document.querySelector(this.settings.player);
 
   // the label for everyone
-  this.label = (typeof(this.settings.currentlyPlaying) == "object") ? this.settings.currentlyPlaying : document.querySelector(this.settings.currentlyPlaying);
+  // this.label = (typeof(this.settings.currentlyPlaying) == "object") ? this.settings.currentlyPlaying : document.querySelector(this.settings.currentlyPlaying);
 
   // initialize the play button
   this.playButton = new playButton({
@@ -301,37 +303,24 @@ function HTML5audioplayer(inp){
 
 
 
-
-
-    P1 = function() {
-
+    P3 = function() {
     };
 
-    P1.prototype = Object.create(Ui.prototype);
+    P3.prototype = Object.create(Ui.prototype);
 
-    P1.prototype.createElement = function() {
-      "use strict";
+    P3.prototype.createElement = function() {
       Ui.prototype.createElement.apply(this, arguments);
-      this.addComponent(new Ui.Pointer({
-        type: 'Rect',
-        pointerWidth: 3,
-        pointerHeight: this.width / 5,
-        offset: this.width / 2 - this.width / 3.3 - this.width / 10
+      this.addComponent(new Ui.Arc({
+        arcWidth: this.width/15
       }));
+      this.merge(this.options, {arcWidth: this.width/15});
+      var arc = new Ui.El.Arc(this.options);
+      arc.setAngle(this.options.anglerange);
+      this.el.node.appendChild(arc.node);
+      this.el.node.setAttribute("class", "p3");
+    };
 
-      // this.addComponent(new Ui.Scale(this.merge(this.options, {
-      //   drawScale: false,
-      //   drawDial: true,
-      //   radius: this.width/2.6})));
-
-      var circle = new Ui.El.Circle(this.width / 3.3, this.width / 2, this.height / 2);
-      this.el.node.appendChild(circle.node);
-      this.el.node.setAttribute("class", "p1");
-};
-
-
-
-        this.jim = new Knob(this.element, new P1());
+        this.jim = new Knob(this.element, new P3());
         // window.jim = this.jim;
 
   }

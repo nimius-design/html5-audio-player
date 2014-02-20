@@ -19,24 +19,18 @@ var spec = describe("HTML5 audioplayer", function () {
     });
 
     it("should set labels", function () {
-      var testSong = this.player.returnSong({
-        name: "Worry is yet another side effect of dying"
-      });
+      var testSong = this.player.playlist.songs[1];
+
       this.player.setLabel(testSong);
 
       buster.assert.equals(
-        this.player.label.innerHTML,
-        "Worry is yet another side effect of dying"
+        document.querySelector(this.player.settings.songSelector+".active").innerHTML,
+        "I'll be right behind you Josephine"
       );
     });
 
     it("should set songs", function() {
-      var testSong = this.player.returnSong({
-        name: "Nothing to be gained by worrying between now and then",
-        mp3:  "--__SOME__unique--STRING__mp3--",
-        ogg:  "--__SOME__unique--STRING__ogg--",
-        id:   42
-      });
+      var testSong = this.player.playlist.songs[1];
 
       this.player.setSong(testSong);
 

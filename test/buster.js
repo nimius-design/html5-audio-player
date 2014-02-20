@@ -18,7 +18,10 @@ config["My tests"] = {
         path: "/",
         file: "./Resources/Public/js/tests/player.html"
       }
-    ]
+    ],
+    //extensions: [
+    //    require('buster-istanbul')
+    //]
 };
 
 
