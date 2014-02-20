@@ -1,56 +1,48 @@
-.audio-controllerPlay {
-  display: block;
-  height: 51px;
-  width: 51px;
-  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat 0 -5px;
+/*
+gray: #ccc;
+light magenta: #ee0060;
+heavy magenta: #e9004c;
+ */
+
+.tx-nim-html5audioplayer {
+      position: relative;
 }
 
-.audio-controllerPause {
-  display: block;
-  height: 51px;
-  width: 51px;
-  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat -55px -5px;
+.audio-controllerPlay:before {
+    content:'\25BA';
+    color: #ee0060;
 }
 
-.audio-controllerNext {
-  display: block;
-  height: 51px;
-  width: 51px;
-  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat -161px -5px;
+.audio-controllerPause:before {
+  content: "❚❚";
+  color: #ee0060;
 }
 
-.audio-controllerPrev {
-  display: block;
-  height: 51px;
-  width: 51px;
-  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat -110px -5px;
-}
-.audio-controllerPlay:hover {
-  display: block;
-  height: 51px;
-  width: 51px;
-  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat 0 -60px;
+.audio-controllerNext:before {
+  content: ">";
 }
 
-.audio-controllerPause:hover {
-  display: block;
-  height: 51px;
-  width: 51px;
-  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat -55px -60px;
+.audio-controllerPrev:before {
+  content: "<";
 }
 
-.audio-controllerNext:hover {
-  display: block;
-  height: 51px;
-  width: 51px;
-  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat -161px -60px;
+.audio-controllerNext:before, .audio-controllerPrev:before {
+  color: #ccc;
+  border: 1px solid #ccc;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  box-sizing: border-box;
+  padding: 10px;
+  transition: all 0.1s;
 }
 
-.audio-controllerPrev:hover {
-  display: block;
-  height: 51px;
-  width: 51px;
-  background:url('/typo3conf/ext/nim_html5audioplayer/Resources/Public/Img/ndmusic-sprites.png') no-repeat -110px -60px;
+.audio-controllerNext:hover:before, .audio-controllerPrev:hover:before {
+  color: #ee0060;
+  border: 1px solid #ee0060;
 }
 
 .audio-controller {
@@ -61,17 +53,45 @@
   clear: both;
 }
 
-.audio-controller:before,
-.audio-controller:after {
-  display: table;
-  line-height: 0;
-  content: "";
+
+.audio-controllerPlay, .audio-controllerPause {
+      font-size: 50px;
+    position: absolute;
+    top: 85px;
+    left: 117px;
+}
+
+.audio-controllerPrev {
+    position: absolute;
+    top: 190px;
+    left: 35px;
+}
+
+.audio-controllerNext {
+    position: absolute;
+    top: 190px;
+    left: 185px;
+}
+
+
+
+.audio-controller {
+      height: 225px;
+    padding-left: 35px;
+    margin: 0;
 }
 
 .audio-controller li {
   float: left;
   cursor: pointer;
   list-style-type: none;
+  width: 50px;
+  height: 50px;
+  z-index: 1;
+}
+
+.song.active {
+  color: #ee0060;
 }
 
 
@@ -79,30 +99,17 @@
 
 
 
-.p1 rect {
-  fill: #57C7B6;
+.p3 path {
+  stroke: none;
+  fill: #e9004c;
+  filter: url(#inner-shadow)
 }
 
-.p1 g polygon {
-  opacity: 1;
+.p3 path:first-child {
+  fill: #ee0060;
+  stroke: none;
 }
 
-.p1 circle {
-  fill: #256058;
-  stroke: #57C7B6;
-  stroke-width: 2;
-  filter: url(#dropshadow);
-}
-
-.p1 text {
-  font-size: 10px;
-  fill: #57C7B6;
-  font-family: sans-serif;
-  font-weight: 300;
-  -webkit-transition: all .1s ease-in-out;
-}
-
-.p1 text.active {
-  font-size: 15px;
-  -webkit-transition: all .3s ease-in-out;
+.p3 {
+  z-index: 0;
 }
