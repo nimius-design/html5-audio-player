@@ -220,6 +220,11 @@ function HTML5audioplayer(inp) {
         HTML5audioplayer.bindTimeUpdate(true);
     }
 
+    this.player.onended = function(){
+        HTML5audioplayer.next();
+        HTML5audioplayer.play();
+    }
+
 
     // ==============================================
     //
