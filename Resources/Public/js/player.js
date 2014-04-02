@@ -15,6 +15,7 @@ function HTML5audioplayer(inp){
     songSelector:     '#audio-playlist .song',
 
     knob:             '#control .knob',
+    time:             '#control .time',
 
     uploadFolder:     'uploads/tx_nimhtml5audioplayer/',
   },inp);
@@ -106,6 +107,34 @@ function HTML5audioplayer(inp){
   this.returnSong = function(inp){
     return new song(inp);
   }
+
+
+
+
+    this.getPercentage = function(){
+        return this.player.currentTime / this.player.seekable.end(0);
+    }
+
+    this.time = new jimKnopf({
+        knob:       this.settings.time,
+        thickness:  50,
+        class:      "timerunner"
+    });
+
+    this.updateTime = function(){
+        if(!this.player.paused && this.getPercentage() != 0){
+            this.time.jim.ui.update(
+                this.getPercentage()
+            );
+        }
+        //console.log(this);
+    }
+
+    setInterval(this.updateTime.bind(this),100);
+
+
+
+
   //
   // ===============================================
   //                initialization
@@ -301,6 +330,13 @@ function HTML5audioplayer(inp){
   function jimKnopf(inp){
     this.element = (typeof(inp.knob) == "object") ? inp.knob : document.querySelector(inp.knob);
 
+      if(!inp.thickness){
+          inp.thickness = 15;
+      }
+
+      if(!inp.class){
+          inp.class = "p3";
+      }
 
 
     P3 = function() {
@@ -311,13 +347,13 @@ function HTML5audioplayer(inp){
     P3.prototype.createElement = function() {
       Ui.prototype.createElement.apply(this, arguments);
       this.addComponent(new Ui.Arc({
-        arcWidth: this.width/15
+        arcWidth: this.width/inp.thickness
       }));
-      this.merge(this.options, {arcWidth: this.width/15});
+      this.merge(this.options, {arcWidth: this.width/inp.thickness});
       var arc = new Ui.El.Arc(this.options);
       arc.setAngle(this.options.anglerange);
       this.el.node.appendChild(arc.node);
-      this.el.node.setAttribute("class", "p3");
+      this.el.node.setAttribute("class", inp.class);
     };
 
         this.jim = new Knob(this.element, new P3());

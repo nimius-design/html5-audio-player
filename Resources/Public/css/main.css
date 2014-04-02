@@ -99,17 +99,23 @@ heavy magenta: #e9004c;
 
 
 
-.p3 path {
+.p3 path,
+.timerunner path{
   stroke: none;
   fill: #e9004c;
   filter: url(#inner-shadow)
 }
 
-.p3 path:first-child {
+.p3 path:first-child
+.timerunner path:first-child{
   fill: #ee0060;
   stroke: none;
 }
 
 .p3 {
   z-index: 0;
+}
+
+.timerunner {
+    margin: 50px;
 }
