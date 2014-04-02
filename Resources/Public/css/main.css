@@ -5,122 +5,113 @@ heavy magenta: #e9004c;
  */
 
 .tx-nim-html5audioplayer {
-      position: relative;
+    position: relative;
 }
 
 .audio-controllerPlay:before {
-    content:'\25BA';
-    color: #ee0060;
+    content: '\25BA';
+    color:   #ee0060;
 }
 
 .audio-controllerPause:before {
-  content: "❚❚";
-  color: #ee0060;
+    content: "❚❚";
+    color:   #ee0060;
 }
 
 .audio-controllerNext:before {
-  content: ">";
+    content: ">";
 }
 
 .audio-controllerPrev:before {
-  content: "<";
+    content: "<";
 }
 
 .audio-controllerNext:before, .audio-controllerPrev:before {
-  color: #ccc;
-  border: 1px solid #ccc;
-  display: inline-block;
-  text-align: center;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 30px;
-  box-sizing: border-box;
-  padding: 10px;
-  transition: all 0.1s;
+    color:         #ccc;
+    border:        1px solid #ccc;
+    display:       inline-block;
+    text-align:    center;
+    border-radius: 50%;
+    width:         50px;
+    height:        50px;
+    font-size:     30px;
+    box-sizing:    border-box;
+    padding:       10px;
+    transition:    all 0.1s;
 }
 
 .audio-controllerNext:hover:before, .audio-controllerPrev:hover:before {
-  color: #ee0060;
-  border: 1px solid #ee0060;
+    color:  #ee0060;
+    border: 1px solid #ee0060;
 }
 
 .audio-controller {
-  clear: both;
+    clear: both;
 }
 
 .audio-controller:after {
-  clear: both;
+    clear: both;
 }
 
-
 .audio-controllerPlay, .audio-controllerPause {
-      font-size: 50px;
-    position: absolute;
-    top: 85px;
-    left: 117px;
+    font-size: 50px;
+    position:  absolute;
+    top:       85px;
+    left:      117px;
 }
 
 .audio-controllerPrev {
     position: absolute;
-    top: 190px;
-    left: 35px;
+    top:      190px;
+    left:     35px;
 }
 
 .audio-controllerNext {
     position: absolute;
-    top: 190px;
-    left: 185px;
+    top:      190px;
+    left:     185px;
 }
 
-
-
 .audio-controller {
-      height: 225px;
+    height:       225px;
     padding-left: 35px;
-    margin: 0;
+    margin:       0;
 }
 
 .audio-controller li {
-  float: left;
-  cursor: pointer;
-  list-style-type: none;
-  width: 50px;
-  height: 50px;
-  z-index: 1;
+    float:           left;
+    cursor:          pointer;
+    list-style-type: none;
+    width:           50px;
+    height:          50px;
+    z-index:         1;
 }
 
 .song.active {
-  color: #ee0060;
+    color: #ee0060;
 }
 
-
-
-
-
-
 .p3 path,
-.timerunner path{
-  stroke: none;
-  fill: #ee0060;
-  filter: url(#inner-shadow);
+.timerunner path {
+    stroke: none;
+    fill:   #ee0060;
+    filter: url(#inner-shadow);
 }
 
 .p3 path:first-child
-.timerunner path:first-child{
-  fill: #ee0060;
-  stroke: none;
+.timerunner path:first-child {
+    fill:   #ee0060;
+    stroke: none;
 }
 
 .p3 {
-  z-index: 0;
+    z-index: 0;
 }
-
 
 .timerunner {
     position: relative;
-    top: 50px;
-    left: 50px;
+    top:      50px;
+    left:     50px;
 }
 
 .p3, .timerunner, #control > div {
