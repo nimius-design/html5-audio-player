@@ -104,7 +104,8 @@ function HTML5audioplayer(inp){
     this.player.volume = vol;
 
     if(vol > 0 && vol < 1){
-        this.knob.jim.ui.update(vol);
+        console.log(this);
+        this.knob.update(vol);
     }
   }
 
@@ -120,7 +121,7 @@ function HTML5audioplayer(inp){
     this.setTime = function(time){
         if(time < this.player.seekable.end(0)){
             this.player.currentTime = time;
-            this.timerunner.jim.ui.update(time);
+            this.timerunner.update(time);
         }
     }
 
@@ -136,7 +137,7 @@ function HTML5audioplayer(inp){
 
     this.updateTime = function(){
         if(!this.player.paused && this.getPercentage() != 0){
-            this.time.jim.ui.update(
+            this.time.update(
                 this.getPercentage()
             );
         }
@@ -344,6 +345,10 @@ function HTML5audioplayer(inp){
 
 
   function jimKnopf(inp){
+
+      /*
+      initialization
+       */
     this.element = (typeof(inp.knob) == "object") ? inp.knob : document.querySelector(inp.knob);
 
       if(!inp.thickness){
@@ -374,6 +379,19 @@ function HTML5audioplayer(inp){
 
         this.jim = new Knob(this.element, new P3());
         // window.jim = this.jim;
+
+
+      /*
+       ------------------
+       */
+
+      this.update = function(num,isPercent){
+          if(typeof isPercent !== "undefined" || isPercent){
+              num /= 100;
+          }
+          this.jim.ui.update(num);
+      }
+
 
   }
 
