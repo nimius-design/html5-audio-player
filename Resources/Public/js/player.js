@@ -102,6 +102,10 @@ function HTML5audioplayer(inp){
 
   this.setVolume = function(vol){
     this.player.volume = vol;
+
+    if(vol > 0 && vol < 1){
+        this.knob.jim.ui.update(vol);
+    }
   }
 
   this.returnSong = function(inp){
@@ -109,7 +113,16 @@ function HTML5audioplayer(inp){
   }
 
 
+    //
+    //
+    //
 
+    this.setTime = function(time){
+        if(time < this.player.seekable.end(0)){
+            this.player.currentTime = time;
+            this.timerunner.jim.ui.update(time);
+        }
+    }
 
     this.getPercentage = function(){
         return this.player.currentTime / this.player.seekable.end(0);
@@ -164,6 +177,9 @@ function HTML5audioplayer(inp){
   this.knob = new jimKnopf({
     knob:   this.settings.knob,
   })
+
+  this.setVolume(0.999);
+
 
 
 
