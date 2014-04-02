@@ -122,3 +122,7 @@ heavy magenta: #e9004c;
     top: 50px;
     left: 50px;
 }
+
+.p3, .timerunner, #control > div {
+    outline: none;
+}
