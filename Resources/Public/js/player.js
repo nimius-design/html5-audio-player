@@ -134,7 +134,6 @@ function HTML5audioplayer(inp) {
     this.time = new jimKnopf({
         knob: this.settings.time,
         thickness: 50,
-        class: "timerunner"
     });
 
     this.updateTime = function () {
@@ -319,7 +318,7 @@ function HTML5audioplayer(inp) {
                 name: s[i].getAttribute("data-name") ? s[i].getAttribute("data-name") : false,
                 mp3: s[i].getAttribute("data-mp3") ? s[i].getAttribute("data-mp3") : false,
                 ogg: s[i].getAttribute("data-ogg") ? s[i].getAttribute("data-ogg") : false,
-                id: id,
+                id: id
             }));
             s[i].setAttribute("data-id", id);
 
@@ -378,29 +377,25 @@ function HTML5audioplayer(inp) {
             inp.thickness = 15;
         }
 
-        if (!inp.class) {
-            inp.class = "p3";
-        }
-
         var P2 = function () {
         };
 
-        P3 = function () {
+        P3 = function() {
         };
 
         P3.prototype = Object.create(Ui.prototype);
 
-        P3.prototype.createElement = function () {
+        P3.prototype.createElement = function() {
             Ui.prototype.createElement.apply(this, arguments);
             this.addComponent(new Ui.Arc({
-                arcWidth: this.width / inp.thickness
+                arcWidth: this.width/inp.thickness
             }));
-            this.merge(this.options, {arcWidth: this.width / inp.thickness});
+            this.merge(this.options, {arcWidth: this.width/inp.thickness});
             var arc = new Ui.El.Arc(this.options);
             arc.setAngle(this.options.anglerange);
             this.el.node.appendChild(arc.node);
-            this.el.node.setAttribute("class", inp.class);
         };
+
 
         this.jim = new Knob(this.element, new P3());
         // window.jim = this.jim;
