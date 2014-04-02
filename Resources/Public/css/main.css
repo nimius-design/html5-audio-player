@@ -102,8 +102,8 @@ heavy magenta: #e9004c;
 .p3 path,
 .timerunner path{
   stroke: none;
-  fill: #e9004c;
-  filter: url(#inner-shadow)
+  fill: #ee0060;
+  filter: url(#inner-shadow);
 }
 
 .p3 path:first-child
@@ -116,6 +116,9 @@ heavy magenta: #e9004c;
   z-index: 0;
 }
 
+
 .timerunner {
-    margin: 50px;
+    position: relative;
+    top: 50px;
+    left: 50px;
 }

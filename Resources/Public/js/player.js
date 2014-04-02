@@ -58,7 +58,7 @@ function HTML5audioplayer(inp){
     if(song.ogg){
       out += '<source src="'+this.settings.uploadFolder+'/'+song.ogg+'" data-title="'+song.name+'" type="audio/ogg" preload="auto" />'
     }
-    console.log(this.player);
+    //console.log(this.player);
     this.player.innerHTML = out;
     this.setLabel(song);
     this.playlist.currentSong = song.id;
@@ -104,7 +104,7 @@ function HTML5audioplayer(inp){
     this.player.volume = vol;
 
     if(vol > 0 && vol < 1){
-        console.log(this);
+        //console.log(this);
         this.knob.update(vol);
     }
   }
@@ -120,8 +120,9 @@ function HTML5audioplayer(inp){
 
     this.setTime = function(time){
         if(time < this.player.seekable.end(0)){
+            //console.log(time);
             this.player.currentTime = time;
-            this.timerunner.update(time);
+            //this.time.update(time);
         }
     }
 
@@ -144,7 +145,16 @@ function HTML5audioplayer(inp){
         //console.log(this);
     }
 
-    setInterval(this.updateTime.bind(this),100);
+    this.bindTimeUpdate = function(bind){
+        if(bind){
+            this.timeUpdateInterval = setInterval(this.updateTime.bind(this),100);
+        } else {
+            clearInterval(this.timeUpdateInterval);
+        }
+    }
+
+    this.bindTimeUpdate(true);
+
 
 
 
@@ -204,6 +214,15 @@ function HTML5audioplayer(inp){
 
   };
 
+  this.time.element.onchange = function(){
+      HTML5audioplayer.bindTimeUpdate(false);
+      HTML5audioplayer.pause();
+      HTML5audioplayer.setTime(this.value * HTML5audioplayer.player.seekable.end(0));
+      setTimeout(function(){
+          HTML5audioplayer.play();
+      },1000);
+      HTML5audioplayer.bindTimeUpdate(true);
+  }
 
 
 
@@ -237,7 +256,7 @@ function HTML5audioplayer(inp){
     if(inp.ogg)  this.ogg = inp.ogg;
     if(inp.name)  this.name = inp.name;
     if(inp.id)  this.id = inp.id;
-    console.log(inp);
+    //console.log(inp);
   }
 
 
@@ -281,7 +300,7 @@ function HTML5audioplayer(inp){
   */
   function playlist(songSelector){
     playlist = this;
-    console.log(songSelector);
+    //console.log(songSelector);
 
     this.currentSong = 1;
     // build the actual playlist
@@ -301,7 +320,7 @@ function HTML5audioplayer(inp){
       s[i].setAttribute("data-id",id);
 
       s[i].onclick = function(){
-        console.log(this)
+        //console.log(this)
         HTML5audioplayer.setSong(playlist.songs[this.getAttribute("data-id")]);
         HTML5audioplayer.player.load();
         HTML5audioplayer.play();
@@ -338,7 +357,7 @@ function HTML5audioplayer(inp){
       }
 
       this.currentSong = prevSong;
-      console.log(["nextSong in playlist.prev d()",prevSong]);
+      //console.log(["nextSong in playlist.prev d()",prevSong]);
       return this.songs[prevSong];
     }
   }
@@ -359,8 +378,10 @@ function HTML5audioplayer(inp){
           inp.class = "p3";
       }
 
+      var P2 = function() {
+      };
 
-    P3 = function() {
+      P3 = function() {
     };
 
     P3.prototype = Object.create(Ui.prototype);
