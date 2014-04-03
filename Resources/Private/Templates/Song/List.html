@@ -13,71 +13,14 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:section name="main">
 
-<section class="audio-player" id="audio-player" style="margin-top: 200px;">
+<section class="audio-player" id="audio-player">
   <f:render partial="Player" arguments="{song: songs.0}"/>
   <p class="currently-playing"></p>
   <f:render partial="Controls" />
 
   <f:render partial="Playlist" arguments="{songs: songs}" />
+
 </section>
-
-
-<svg>
-    <filter id="dropshadow" height="150%" width="150%">
-        <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
-        <feOffset dx="0" dy="3" result="offsetblur"/>
-        <feMerge>
-            <feMergeNode/>
-            <feMergeNode in="SourceGraphic"/>
-        </feMerge>
-    </filter>
-    <filter id='inner-shadow'>
-
-        <!-- Shadow Offset -->
-        <feOffset
-                dx='0'
-                dy='5'
-                />
-
-        <!-- Shadow Blur -->
-        <feGaussianBlur
-                stdDeviation='5'
-                result='offset-blur'
-                />
-
-        <!-- Invert the drop shadow
-             to create an inner shadow -->
-        <feComposite
-                operator='out'
-                in='SourceGraphic'
-                in2='offset-blur'
-                result='inverse'
-                />
-
-        <!-- Color & Opacity -->
-        <feFlood
-                flood-color='black'
-                flood-opacity='0.75'
-                result='color'
-                />
-
-        <!-- Clip color inside shadow -->
-        <feComposite
-                operator='in'
-                in='color'
-                in2='inverse'
-                result='shadow'
-                />
-
-        <!-- Put shadow over original object -->
-        <feComposite
-                operator='over'
-                in='shadow'
-                in2='SourceGraphic'
-                />
-    </filter>
-</svg>
-
 
 <!--
   @TODO move this outside of the template

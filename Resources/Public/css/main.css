@@ -100,7 +100,8 @@ heavy magenta: #e9004c;
 .volumeknob path:nth-child(2),
 .timerunner path:nth-child(2) {
     fill:  #ee0060;
-    stoke: none;
+    /*filter: url(#inner-shadow);*/
+    /*filter: url(/typo3conf/ext/nim_html5audioplayer/Resources/Public/filter.svg#inset-shadow);*/
 }
 
 .timerunner {
