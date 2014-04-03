@@ -1,15 +1,19 @@
 $lightMagenta: #ee0060;
 $gray: #ddd;
+$darkGray: #777;
 $extensionURL: "/typo3conf/ext/nim_html5audioplayer/";
 
-$playIcon:  "\e600";
+$playIcon: "\e600";
 $pauseIcon: "\e603";
-$nextIcon:  "\e601";
-$prevIcon:  "\e602";
+$nextIcon: "\e601";
+$prevIcon: "\e602";
+
+$buttonSpread: 100px;
+$buttonTop:    180px;
 
 .tx-nim-html5audioplayer {
+  width: 270px;
   position: relative;
-
 
   .audio-controllerNext:before {
     padding: 13px 15px;
@@ -40,63 +44,60 @@ $prevIcon:  "\e602";
 
   .audio-controller {
     clear: both;
-  &:after {
-    clear: both;
-  }
+    width: 270px;
+    height:       225px;
+//    padding-left: 35px;
+    margin: 0px auto;
+    &:after {
+      clear: both;
+    }
   }
 
   .audio-controllerPlay, .audio-controllerPause {
-    font-size: 50px;
-    position:  absolute;
-    top:       85px;
-    left:      117px;
+    font-size: 40px;
+    position:  relative;
+    top:        88px;
+    left:      -11px;
   }
-
 
   .audio-controllerPlay:before {
     content:      $playIcon;
     color:        $lightMagenta;
-    padding-left: 7px;
-    padding-top:  10px;
+    padding-left: 5px;
   }
 
   .audio-controllerPause:before {
-    content:      $pauseIcon;
-    color:        $lightMagenta;
-    padding-top:  15px;
-    padding-left: 2px;
+    content:     $pauseIcon;
+    color:       $lightMagenta;
+    padding-top: 15px;
   }
 
   .audio-controllerNext:before {
-    content:     $nextIcon;
+    content: $nextIcon;
 
   }
 
   .audio-controllerPrev:before {
-    content:     $prevIcon;
+    content: $prevIcon;
 
   }
 
   .audio-controllerPrev {
-    position: absolute;
-    top:      190px;
-    left:     35px;
+    position: relative;
+    top:      $buttonTop;
+    left:    -$buttonSpread / 2 - 25;
   }
 
   .audio-controllerNext {
-    position: absolute;
-    top:      190px;
-    left:     185px;
+    position: relative;
+    top:      $buttonTop;
+    left:     $buttonSpread / 2 - 25;
   }
 
-  .audio-controller {
-    height:       225px;
-    padding-left: 35px;
-    margin:       0;
-  }
+
 
   .audio-controller li {
-    font-family: "NIM_HTML5audioplayer";
+    font-family:     "NIM_HTML5audioplayer";
     float:           left;
     cursor:          pointer;
     list-style-type: none;
@@ -104,24 +105,18 @@ $prevIcon:  "\e602";
     height:          50px;
   }
 
-  .song.active {
-    color: $lightMagenta;
-  }
-
   .volumeknob, .timerunner {
     path {
-      &:nth-child(1){
+      &:nth-child(1) {
         fill:  $gray;
         stoke: none;
       }
 
-      &:nth-child(2){
+      &:nth-child(2) {
         fill: $lightMagenta;
       }
     }
   }
-;
-;
 
   .timerunner {
     margin: 50px;
@@ -129,6 +124,33 @@ $prevIcon:  "\e602";
 
   #control > * {
     outline: none;
+  }
+
+  .audio-playlist ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style-type: none;
+
+      .song {
+        display: block;
+        padding: 10px 25px;
+        transition: all 0.5s;
+        color: $darkGray;
+
+        
+
+        &.active {
+          color: $lightMagenta;
+          background:  rgba(0,0,0,0.05);
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 640px){
+    width: 100%;
   }
 }
 
