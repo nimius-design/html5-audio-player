@@ -1,0 +1,12 @@
+{
+  "name": "NIM_HTML5audioplayer",
+  "version": "0.0.1",
+  "description": "no description",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-watch": "~0.4.4",
+    "grunt-contrib-sass": "~0.7.3"
+  },
+  "author": "NIMIUS",
+  "license": "GPL"
+}
