@@ -1,108 +1,168 @@
 $lightMagenta: #ee0060;
 $gray: #ddd;
+$extensionURL: "/typo3conf/ext/nim_html5audioplayer/";
+
+$playIcon:  "\e600";
+$pauseIcon: "\e603";
+$nextIcon:  "\e601";
+$prevIcon:  "\e602";
 
 .tx-nim-html5audioplayer {
   position: relative;
+
+
+  .audio-controllerNext:before {
+    padding: 13px 15px;
+  }
+  .audio-controllerPrev:before {
+    padding: 13px 12px;
+  }
+  .audio-controllerNext, .audio-controllerPrev {
+    width:         50px;
+    height:        50px;
+    color:         $gray;
+    border-radius: 50%;
+    border:        1px solid $gray;
+    transition:    all 0.3s;
+
+    &:hover {
+      border: 1px solid $lightMagenta;
+      color:  $lightMagenta;
+    }
+
+    &:before {
+      display:    inline-block;
+      text-align: center;
+      font-size:  20px;
+      box-sizing: border-box;
+    }
+  }
+
+  .audio-controller {
+    clear: both;
+  &:after {
+    clear: both;
+  }
+  }
+
+  .audio-controllerPlay, .audio-controllerPause {
+    font-size: 50px;
+    position:  absolute;
+    top:       85px;
+    left:      117px;
+  }
+
+
+  .audio-controllerPlay:before {
+    content:      $playIcon;
+    color:        $lightMagenta;
+    padding-left: 7px;
+    padding-top:  10px;
+  }
+
+  .audio-controllerPause:before {
+    content:      $pauseIcon;
+    color:        $lightMagenta;
+    padding-top:  15px;
+    padding-left: 2px;
+  }
+
+  .audio-controllerNext:before {
+    content:     $nextIcon;
+
+  }
+
+  .audio-controllerPrev:before {
+    content:     $prevIcon;
+
+  }
+
+  .audio-controllerPrev {
+    position: absolute;
+    top:      190px;
+    left:     35px;
+  }
+
+  .audio-controllerNext {
+    position: absolute;
+    top:      190px;
+    left:     185px;
+  }
+
+  .audio-controller {
+    height:       225px;
+    padding-left: 35px;
+    margin:       0;
+  }
+
+  .audio-controller li {
+    font-family: "NIM_HTML5audioplayer";
+    float:           left;
+    cursor:          pointer;
+    list-style-type: none;
+    width:           50px;
+    height:          50px;
+  }
+
+  .song.active {
+    color: $lightMagenta;
+  }
+
+  .volumeknob, .timerunner {
+    path {
+      &:nth-child(1){
+        fill:  $gray;
+        stoke: none;
+      }
+
+      &:nth-child(2){
+        fill: $lightMagenta;
+      }
+    }
+  }
+;
+;
+
+  .timerunner {
+    margin: 50px;
+  }
+
+  #control > * {
+    outline: none;
+  }
 }
 
-.audio-controllerPlay:before {
-  content: '\25BA';
-  color:   $lightMagenta;
+@font-face {
+  font-family: 'NIM_HTML5audioplayer';
+  src:         url($extensionURL + 'Resources/Public/fonts/audioplayer.eot?l07elj');
+  src:         url($extensionURL + 'Resources/Public/fonts/audioplayer.eot?#iefixl07elj') format('embedded-opentype'), url($extensionURL + 'Resources/Public/fonts/audioplayer.woff?l07elj') format('woff'), url($extensionURL + 'Resources/Public/fonts/audioplayer.ttf?l07elj') format('truetype'), url($extensionURL + 'Resources/Public/fonts/audioplayer.svg?l07elj#icomoon') format('svg');
+  font-weight: normal;
+  font-style:  normal;
 }
 
-.audio-controllerPause:before {
-  content: "❚❚";
-  color:   $lightMagenta;
-}
-
-.audio-controllerNext:before {
-  content: ">";
-}
-
-.audio-controllerPrev:before {
-  content: "<";
-}
-
-.audio-controllerNext:before, .audio-controllerPrev:before {
-  color:         $gray;
-  border:        1px solid $gray;
-  display:       inline-block;
-  text-align:    center;
-  border-radius: 50%;
-  width:         50px;
-  height:        50px;
-  font-size:     30px;
-  box-sizing:    border-box;
-  padding:       10px;
-  transition:    all 0.1s;
-}
-
-.audio-controllerNext:hover:before, .audio-controllerPrev:hover:before {
-  color:  $lightMagenta;
-  border: 1px solid $lightMagenta;
-}
-
-.audio-controller {
-  clear: both;
-}
-
-.audio-controller:after {
-  clear: both;
-}
-
-.audio-controllerPlay, .audio-controllerPause {
-  font-size: 50px;
-  position:  absolute;
-  top:       85px;
-  left:      117px;
-}
-
-.audio-controllerPrev {
-  position: absolute;
-  top:      190px;
-  left:     35px;
-}
-
-.audio-controllerNext {
-  position: absolute;
-  top:      190px;
-  left:     185px;
-}
-
-.audio-controller {
-  height:       225px;
-  padding-left: 35px;
-  margin:       0;
-}
-
-.audio-controller li {
-  float:           left;
-  cursor:          pointer;
-  list-style-type: none;
-  width:           50px;
-  height:          50px;
-  z-index:         1;
-}
-
-.song.active {
-  color: $lightMagenta;
-}
-
-.volumeknob path:nth-child(1),
-.timerunner path:nth-child(1) {
-  fill:  $gray;
-  stoke: none;
-}
-
-.volumeknob path:nth-child(2),
-.timerunner path:nth-child(2) {
-  fill: $lightMagenta;
-}
-
-.timerunner {
-  margin: 50px;
-}
-
-#control > * {
-  outline: none;
-}
+//[class^="icon-"], [class*=" icon-"] {
+//  font-family: 'icomoon';
+//  speak: none;
+//  font-style: normal;
+//  font-weight: normal;
+//  font-variant: normal;
+//  text-transform: none;
+//  line-height: 1;
+//
+//  /* Better Font Rendering =========== */
+//  -webkit-font-smoothing: antialiased;
+//  -moz-osx-font-smoothing: grayscale;
+//}
+//
+//.icon-play:before {
+//  content: "\e600";
+//}
+//.icon-chevron_right:before {
+//  content: "\e601";
+//}
+//.icon-chevron_left:before {
+//  content: "\e602";
+//}
+//.icon-break:before {
+//  content: "\e603";
+//}
