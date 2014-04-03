@@ -50,6 +50,7 @@ class SongController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 	public function listAction() {
 		$songs = $this->songRepository->findAll();
 		$this->view->assign('songs', $songs);
+        $this->view->assign('settings', $this->settings);
 	}
 
 }

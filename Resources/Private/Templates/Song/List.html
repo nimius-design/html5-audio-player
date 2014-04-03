@@ -20,6 +20,10 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
   <f:render partial="Playlist" arguments="{songs: songs}" />
 
+   <f:if condition="{settings.color}">
+       <f:render partial="Style" arguments="{color: settings.color}"/>
+   </f:if>
+
 </section>
 
 <!--

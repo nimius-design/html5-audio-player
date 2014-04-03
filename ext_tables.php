@@ -9,6 +9,11 @@ if (!defined('TYPO3_MODE')) {
 	'nim_html5-audio-player'
 );
 
+$pluginSignature = str_replace('_','',$_EXTKEY) . '_nimhtml5audioplayer';
+$TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/flexform.xml');
+
+
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'NIMIUS HTML5 Audio Player');
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_nimhtml5audioplayer_domain_model_song', 'EXT:nim_html5audioplayer/Resources/Private/Language/locallang_csh_tx_nimhtml5audioplayer_domain_model_song.xlf');

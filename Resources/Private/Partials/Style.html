@@ -1,0 +1,24 @@
+<f:comment>
+    <!--
+        this creates custom styles with the custom colors
+    -->
+</f:comment>
+
+<style>
+    .audio-controllerNext:hover, .audio-controllerPrev:hover {
+        border: 1px solid {color} !important;
+        color:  {color} !important;
+    }
+
+    .audio-controllerPlay:before, .audio-controllerPause:before {
+        color: {color} !important;
+    }
+
+    .volumeknob path:nth-child(2), .timerunner path:nth-child(2){
+        fill: {color} !important;
+    }
+
+    .song.active {
+        color: {color} !important;
+    }
+</style>
