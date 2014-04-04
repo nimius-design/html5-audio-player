@@ -45,7 +45,7 @@ The MIT License (MIT)
 
 Copyright (c) 2014 [NIMIUS](http://nimius.net)
 
-__TLDR: take it use, have fun with it__
+__TLDR: take it, use it, have fun with it__
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
