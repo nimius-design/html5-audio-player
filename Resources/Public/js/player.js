@@ -238,6 +238,8 @@ function HTML5audioplayer(inp) {
         thickness: 50
     });
 
+    this.timerunner.update(0);
+
     // bind the update
     this.bindTimeUpdate(true);
 
