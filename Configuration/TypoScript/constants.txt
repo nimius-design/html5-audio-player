@@ -9,14 +9,14 @@ plugin.tx_nimhtml5audioplayer {
 	}
 	persistence {
 		# cat=plugin.tx_nimhtml5audioplayer//a; type=string; label=Default storage PID
-		storagePid =
+		storagePid = 45
 	}
   settings {
-    cssFile1 = EXT:nim_html5audioplayer/Resources/Public/Css/main.css
-    cssFile2 = EXT:nim_html5audioplayer/Resources/Public/Css/knobKnob.css
+    cssFile1 = EXT:nim_html5audioplayer/Resources/Public/css/main.css
+    cssFile2 = EXT:nim_html5audioplayer/Resources/Public/css/knobKnob.css
     lib {
-      player = EXT:nim_html5audioplayer/Resources/Public/Js/player.js
-      playerjQuery = EXT:nim_html5audioplayer/Resources/Public/Js/player.jquery.js
+      player = EXT:nim_html5audioplayer/Resources/Public/js/player.js
+      playerjQuery = EXT:nim_html5audioplayer/Resources/Public/js/player.jquery.js
     }
   }
 }
