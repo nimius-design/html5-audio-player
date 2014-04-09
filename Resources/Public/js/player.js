@@ -360,9 +360,17 @@ function HTML5audioplayer(inp) {
 
             s[i].onclick = function () {
                 //console.log(this)
+
+                // do not update while changing the song.
+                // That can result in timpolling while reloading the content
+                HTML5audioplayer.bindTimeUpdate(false);
+                HTML5audioplayer.timerunner.update(0);
+
                 HTML5audioplayer.setSong(playlist.songs[this.getAttribute("data-id")]);
                 HTML5audioplayer.player.load();
                 HTML5audioplayer.play();
+
+                setInterval(HTML5audioplayer.bindTimeUpdate(true),1000);
             }
         }
 
