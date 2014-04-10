@@ -10,7 +10,7 @@ Simply add Songs in the backend and have them presented in a visually appealing 
 
 How to embed
 ------------
-Download and paste the extension in your ext folder, be sure that the name is "nim_html5audioplayer". Install the TYPO3 extension.
+Download and paste the extension in your ext folder, be sure that the name is "nim_html5audioplayer". Install the TYPO3 extension. Be sure, that the storage Folder is set accordingly and be sure to include the statics in your template.
 
 Features
 --------
