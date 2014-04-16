@@ -41,7 +41,7 @@ $TCA['tx_nimhtml5audioplayer_domain_model_song'] = array(
 		),
 		'searchFields' => 'name,mp3,ogg,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Song.php',
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_nimhtml5audioplayer_domain_model_song.gif'
+		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/song.png'
 	),
 );
 
@@ -70,7 +70,7 @@ $TCA['tx_nimhtml5audioplayer_domain_model_mp3'] = array(
 		),
 		'searchFields' => 'mp3,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Mp3.php',
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_nimhtml5audioplayer_domain_model_mp3.gif'
+		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/mp3.png'
 	),
 );
 
@@ -99,7 +99,7 @@ $TCA['tx_nimhtml5audioplayer_domain_model_ogg'] = array(
 		),
 		'searchFields' => 'ogg,',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Ogg.php',
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_nimhtml5audioplayer_domain_model_ogg.gif'
+		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/ogg.png'
 	),
 );
 
