@@ -24,6 +24,8 @@ namespace TYPO3\NimHtml5audioplayer\Domain\Repository;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+use TYPO3\CMS\Extbase\Persistence\QueryInterface;
+use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
  *
@@ -32,7 +34,9 @@ namespace TYPO3\NimHtml5audioplayer\Domain\Repository;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class SongRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
-
+class SongRepository extends Repository {
+    protected $defaultOrderings = array(
+        'sorting' => QueryInterface::ORDER_ASCENDING
+    );
 }
 ?>
