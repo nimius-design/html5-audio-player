@@ -1,5 +1,7 @@
-HTML5 Audio Player
-==================
+HTML5 Audio Player (obsolete!)
+==============================
+
+**THIS EXTENSION IS NOT MAINTAINED ANYMORE!** We do not provide support for this code anymore. If you want to take over this project, feel free to fork or re-upload it under your own namespace.
 
 Let your visitors hear your audible beauty with the HTML5 audioplayer TYPO3 extension.
 
